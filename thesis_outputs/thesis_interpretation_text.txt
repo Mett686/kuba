@@ -1,0 +1,56 @@
+STATISTICAL SIGNIFICANCE CODING
+ns = p >= 0.05; * = p < 0.05; ** = p < 0.01; *** = p < 0.001
+
+NOTE ON METHODS
+Normality was assessed using the Shapiro-Wilk test. Pearson's correlation coefficient was used when both variables were normally distributed; otherwise, Spearman's rho was used. For H4, Welch's independent samples t-test was used when both groups were normally distributed; otherwise, the Mann-Whitney U test was used.
+
+NOTE ON HANDGRIP
+Dominant handgrip strength was approximated as the higher value from the right and left handgrip measurements because hand dominance was not explicitly available in the dataset.
+
+H1 - selected whole-sample interpretation sentences
+- In Whole sample, CMJ height (cm) showed a strong positive association with Snatch Sinclair score (Spearman rho, rho = 0.55, R² = 0.30, p < 0.001), which was statistically significant.
+- In Whole sample, CMJ height (cm) showed a strong positive association with Total Sinclair score (calculated) (Spearman rho, rho = 0.54, R² = 0.30, p < 0.001), which was statistically significant.
+- In Whole sample, CMJ height (cm) showed a strong positive association with Sinclair score (Spearman rho, rho = 0.54, R² = 0.30, p < 0.001), which was statistically significant.
+- In Whole sample, CMJ height (cm) showed a strong positive association with Clean & Jerk Sinclair score (Spearman rho, rho = 0.54, R² = 0.29, p < 0.001), which was statistically significant.
+- In Whole sample, SJ height (cm) showed a moderate positive association with Snatch Sinclair score (Spearman rho, rho = 0.49, R² = 0.24, p < 0.001), which was statistically significant.
+- In Whole sample, SJ height (cm) showed a moderate positive association with Total Sinclair score (calculated) (Spearman rho, rho = 0.48, R² = 0.23, p < 0.001), which was statistically significant.
+- In Whole sample, SJ height (cm) showed a moderate positive association with Sinclair score (Spearman rho, rho = 0.48, R² = 0.23, p < 0.001), which was statistically significant.
+- In Whole sample, CMJ height (cm) showed a moderate positive association with Snatch (kg) (Spearman rho, rho = 0.47, R² = 0.22, p < 0.001), which was statistically significant.
+- In Whole sample, SJ height (cm) showed a moderate positive association with Clean & Jerk Sinclair score (Spearman rho, rho = 0.47, R² = 0.22, p < 0.001), which was statistically significant.
+- In Whole sample, CMJ height (cm) showed a moderate positive association with Total (kg) (Spearman rho, rho = 0.47, R² = 0.22, p < 0.001), which was statistically significant.
+- In Whole sample, CMJ height (cm) showed a moderate positive association with Clean & Jerk (kg) (Spearman rho, rho = 0.46, R² = 0.21, p < 0.001), which was statistically significant.
+- In Whole sample, SJ height (cm) showed a moderate positive association with Snatch (kg) (Spearman rho, rho = 0.41, R² = 0.17, p < 0.001), which was statistically significant.
+
+H2 - selected whole-sample interpretation sentences
+- In Whole sample, Dominant handgrip strength (kg) showed a very strong positive association with Total (kg) (Spearman rho, rho = 0.83, R² = 0.69, p < 0.001), which was statistically significant.
+- In Whole sample, Dominant handgrip strength (kg) showed a very strong positive association with Snatch (kg) (Spearman rho, rho = 0.83, R² = 0.69, p < 0.001), which was statistically significant.
+- In Whole sample, Dominant handgrip strength (kg) showed a very strong positive association with Clean & Jerk (kg) (Spearman rho, rho = 0.83, R² = 0.68, p < 0.001), which was statistically significant.
+- In Whole sample, Dominant handgrip strength (kg) showed a very strong positive association with Snatch Sinclair score (Spearman rho, rho = 0.71, R² = 0.50, p < 0.001), which was statistically significant.
+- In Whole sample, Dominant handgrip strength (kg) showed a very strong positive association with Sinclair score (Spearman rho, rho = 0.70, R² = 0.49, p < 0.001), which was statistically significant.
+- In Whole sample, Dominant handgrip strength (kg) showed a very strong positive association with Total Sinclair score (calculated) (Spearman rho, rho = 0.70, R² = 0.49, p < 0.001), which was statistically significant.
+- In Whole sample, Dominant handgrip strength (kg) showed a strong positive association with Clean & Jerk Sinclair score (Spearman rho, rho = 0.70, R² = 0.49, p < 0.001), which was statistically significant.
+
+H3 - selected whole-sample interpretation sentences
+- In Whole sample, Arm circumference (cm) showed a very strong positive association with Clean & Jerk (kg) (Spearman rho, rho = 0.82, R² = 0.68, p < 0.001), which was statistically significant.
+- In Whole sample, Arm circumference (cm) showed a very strong positive association with Total (kg) (Spearman rho, rho = 0.82, R² = 0.67, p < 0.001), which was statistically significant.
+- In Whole sample, Arm circumference (cm) showed a very strong positive association with Snatch (kg) (Spearman rho, rho = 0.81, R² = 0.66, p < 0.001), which was statistically significant.
+- In Whole sample, Arm circumference (cm) showed a strong positive association with Clean & Jerk Sinclair score (Spearman rho, rho = 0.59, R² = 0.35, p < 0.001), which was statistically significant.
+- In Whole sample, Arm circumference (cm) showed a strong positive association with Sinclair score (Spearman rho, rho = 0.58, R² = 0.34, p < 0.001), which was statistically significant.
+- In Whole sample, Arm circumference (cm) showed a strong positive association with Total Sinclair score (calculated) (Spearman rho, rho = 0.58, R² = 0.34, p < 0.001), which was statistically significant.
+- In Whole sample, Arm circumference (cm) showed a strong positive association with Snatch Sinclair score (Spearman rho, rho = 0.58, R² = 0.34, p < 0.001), which was statistically significant.
+- In Whole sample, Thigh circumference (cm) showed a moderate positive association with Clean & Jerk (kg) (Spearman rho, rho = 0.48, R² = 0.23, p < 0.001), which was statistically significant.
+- In Whole sample, Thigh circumference (cm) showed a moderate positive association with Total (kg) (Spearman rho, rho = 0.48, R² = 0.23, p < 0.001), which was statistically significant.
+- In Whole sample, Thigh circumference (cm) showed a moderate positive association with Snatch (kg) (Spearman rho, rho = 0.47, R² = 0.22, p < 0.001), which was statistically significant.
+- In Whole sample, Thigh circumference (cm) showed a weak positive association with Clean & Jerk Sinclair score (Spearman rho, rho = 0.15, R² = 0.02, p = 0.030), which was statistically significant.
+- In Whole sample, Thigh circumference (cm) showed a weak positive association with Sinclair score (Spearman rho, rho = 0.15, R² = 0.02, p = 0.030), which was statistically significant.
+
+H5 - selected whole-sample interpretation sentences
+- In Whole sample, Eccentric utilization ratio (EUR) showed a weak positive association with Sinclair score (Spearman rho, rho = 0.12, R² = 0.01, p = 0.177), which was not statistically significant.
+- In Whole sample, Eccentric utilization ratio (EUR) showed a weak positive association with Total Sinclair score (calculated) (Spearman rho, rho = 0.12, R² = 0.01, p = 0.177), which was not statistically significant.
+
+H4 - whole-sample interpretation sentences
+- In Whole sample, elite athletes had higher mean Relative leg length (RLL, %) than the remaining athletes (47.44 vs 47.02); this difference was not statistically significant (Mann-Whitney U test, p = 0.907).
+- In Whole sample, elite athletes had higher mean Relative arm length (RAL, %) than the remaining athletes (36.38 vs 36.02); this difference was not statistically significant (Mann-Whitney U test, p = 0.663).
+
+Suggested reporting strategy
+Use one comprehensive correlation table for each hypothesis and include only the most informative figures in the thesis text. For H4, boxplots are recommended because the hypothesis compares two groups. For H1, H2, H3 and H5, scatter plots with regression lines are recommended for the strongest or theoretically most relevant associations.

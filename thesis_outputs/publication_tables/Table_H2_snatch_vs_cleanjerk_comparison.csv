@@ -1,0 +1,6 @@
+﻿Group,Clean Jerk,Clean Jerk Sinclair,Snatch,Snatch Sinclair,Absolute performance: |Snatch| > |Clean & Jerk|,Relative performance: |Snatch Sinclair| > |Clean & Jerk Sinclair|
+Men U20,0.623,0.073,0.634,0.127,True,True
+Men U23,0.577,0.329,0.553,0.25,False,False
+Whole sample,0.825,0.697,0.828,0.707,True,True
+Women U20,0.534,0.138,0.592,0.238,True,True
+Women U23,0.511,0.106,0.445,0.046,False,False

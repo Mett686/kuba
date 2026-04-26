@@ -1,0 +1,11 @@
+﻿Group,Variable,Mean absolute coefficient for kg performance,Mean absolute coefficient for Sinclair performance,Stronger relationship with absolute performance
+Men U20,Arm circumference (cm),0.7,0.026,True
+Men U20,Thigh circumference (cm),0.73,0.063,True
+Men U23,Arm circumference (cm),0.768,0.145,True
+Men U23,Thigh circumference (cm),0.696,0.016,True
+Whole sample,Arm circumference (cm),0.819,0.585,True
+Whole sample,Thigh circumference (cm),0.474,0.148,True
+Women U20,Arm circumference (cm),0.745,0.275,True
+Women U20,Thigh circumference (cm),0.442,0.043,True
+Women U23,Arm circumference (cm),0.757,0.156,True
+Women U23,Thigh circumference (cm),0.677,0.085,True

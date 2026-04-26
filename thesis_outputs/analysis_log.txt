@@ -1,0 +1,15 @@
+Analysis completed successfully.
+Input file: /home/mett/Code/kuba/weightlifting_dataset_2025.csv
+Rows: 379
+Original columns: ['Věková skupina', 'Pohlaví', 'Váhová kategorie', 'Umístění', 'Lot', 'B.weight', 'Snatch', 'Clean Jerk', 'Result', 'Délka ruky (cm)', 'Délka nohy (cm)', 'Biceps (cm)', 'Stehno (cm)', 'Výška (cm)', 'Handgrip P', 'Handgrip L', '3. pokus', 'CMJ Height', 'CMJ Force', 'CMJ RFD', 'CMJ Power', 'SJ Height', 'SJ Power', 'SJ Force', 'Weight', 'Sinclair']
+
+Main outputs:
+- Excel workbook: /home/mett/Code/kuba/thesis_outputs/weightlifting_thesis_results.xlsx
+- Publication CSV tables: /home/mett/Code/kuba/thesis_outputs/publication_tables
+- Figures: /home/mett/Code/kuba/thesis_outputs/figures
+- Interpretation text: /home/mett/Code/kuba/thesis_outputs/thesis_interpretation_text.txt
+
+Important notes:
+1) Dominant handgrip = max(Handgrip P, Handgrip L), because explicit hand dominance is not available.
+2) Elite group = top 25% within each sex based on the source Sinclair score.
+3) Significance coding: ns = p >= 0.05; * = p < 0.05; ** = p < 0.01; *** = p < 0.001.
