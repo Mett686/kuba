@@ -297,7 +297,12 @@ def plot_boxplot(df: pd.DataFrame, value_col: str, title: str, out_path: Path, h
         return False
     data = [sub.loc[~sub["Elite"], value_col], sub.loc[sub["Elite"], value_col]]
     fig, ax = plt.subplots(figsize=(6.5, 5.5))
-    ax.boxplot(data, labels=["Others", "Elite"], showmeans=True)
+    
+    # Matplotlib compatibility fix: Avoid 'labels' vs 'tick_labels' deprecation
+    ax.boxplot(data, showmeans=True)
+    ax.set_xticks([1, 2])
+    ax.set_xticklabels(["Others", "Elite"])
+    
     # add light jittered points
     for i, vals in enumerate(data, start=1):
         jitter = np.random.normal(i, 0.035, size=len(vals))
@@ -521,65 +526,69 @@ for name, table in {
     table.to_csv(TABLE_DIR / name, index=False, encoding="utf-8-sig")
 
 # =========================
-# 7) Figures
+# 7) Figures (Now Generated Separately Per Group)
 # =========================
-# Use whole-sample stats for figure annotations.
-whole_corr = corr_df[corr_df["Group"] == "Whole sample"].copy()
-
-def get_stat(hypothesis: str, x_raw: str, y_raw: str):
-    m = whole_corr[(whole_corr["Hypothesis"] == hypothesis) &
-                   (whole_corr["Predictor_raw"] == x_raw) &
-                   (whole_corr["Outcome_raw"] == y_raw)]
+def get_stat(group_name: str, hypothesis: str, x_raw: str, y_raw: str):
+    m = corr_df[(corr_df["Group"] == group_name) &
+                (corr_df["Hypothesis"] == hypothesis) &
+                (corr_df["Predictor_raw"] == x_raw) &
+                (corr_df["Outcome_raw"] == y_raw)]
     return None if m.empty else m.iloc[0].to_dict()
 
-# H1: key plots
-for x in ["CMJ Height", "SJ Height"]:
-    for y in ["Result", "Sinclair"]:
+def get_h4_stat(group_name: str, var: str):
+    m = h4_df[(h4_df["Group"] == group_name) & (h4_df["Variable_raw"] == var)]
+    return None if m.empty else m.iloc[0].to_dict()
+
+# Generate graphs iteratively for EVERY group (U20 Men, U23 Men, U20 Women, U23 Women, plus Whole Sample)
+for group_name, group_df in groups.items():
+    safe_group = safe_name(group_name)
+
+    # H1: key plots
+    for x in ["CMJ Height", "SJ Height"]:
+        for y in ["Result", "Sinclair"]:
+            plot_scatter(
+                group_df, x, y,
+                f"H1 ({group_name}): {label(x)} and {label(y)}",
+                FIGURE_DIR / "H1" / f"H1_{safe_name(x)}_vs_{safe_name(y)}_{safe_group}.png",
+                get_stat(group_name, "H1", x, y)
+            )
+
+    # H2: key plots + Snatch/Clean & Jerk
+    for y in ["Snatch", "Clean Jerk", "Sinclair"]:
         plot_scatter(
-            df, x, y,
-            f"H1: {label(x)} and {label(y)}",
-            FIGURE_DIR / "H1" / f"H1_{safe_name(x)}_vs_{safe_name(y)}.png",
-            get_stat("H1", x, y)
+            group_df, "Dominant handgrip", y,
+            f"H2 ({group_name}): {label('Dominant handgrip')} and {label(y)}",
+            FIGURE_DIR / "H2" / f"H2_Dominant_handgrip_vs_{safe_name(y)}_{safe_group}.png",
+            get_stat(group_name, "H2", "Dominant handgrip", y)
         )
 
-# H2: key plots + Snatch/Clean & Jerk
-for y in ["Snatch", "Clean Jerk", "Sinclair"]:
-    plot_scatter(
-        df, "Dominant handgrip", y,
-        f"H2: {label('Dominant handgrip')} and {label(y)}",
-        FIGURE_DIR / "H2" / f"H2_Dominant_handgrip_vs_{safe_name(y)}.png",
-        get_stat("H2", "Dominant handgrip", y)
-    )
+    # H3: key plots
+    for x in ["Biceps (cm)", "Stehno (cm)"]:
+        for y in ["Result", "Sinclair"]:
+            plot_scatter(
+                group_df, x, y,
+                f"H3 ({group_name}): {label(x)} and {label(y)}",
+                FIGURE_DIR / "H3" / f"H3_{safe_name(x)}_vs_{safe_name(y)}_{safe_group}.png",
+                get_stat(group_name, "H3", x, y)
+            )
 
-# H3: key plots
-for x in ["Biceps (cm)", "Stehno (cm)"]:
-    for y in ["Result", "Sinclair"]:
-        plot_scatter(
-            df, x, y,
-            f"H3: {label(x)} and {label(y)}",
-            FIGURE_DIR / "H3" / f"H3_{safe_name(x)}_vs_{safe_name(y)}.png",
-            get_stat("H3", x, y)
+    # H4: boxplots for RLL and RAL
+    for var in ["RLL", "RAL"]:
+        plot_boxplot(
+            group_df, var,
+            f"H4 ({group_name}): {label(var)} in elite and non-elite athletes",
+            FIGURE_DIR / "H4" / f"H4_{safe_name(var)}_elite_vs_others_{safe_group}.png",
+            get_h4_stat(group_name, var)
         )
 
-# H4: boxplots for RLL and RAL
-whole_h4 = h4_df[h4_df["Group"] == "Whole sample"].copy()
-for var in ["RLL", "RAL"]:
-    row = whole_h4[whole_h4["Variable_raw"] == var]
-    plot_boxplot(
-        df, var,
-        f"H4: {label(var)} in elite and non-elite athletes",
-        FIGURE_DIR / "H4" / f"H4_{safe_name(var)}_elite_vs_others.png",
-        None if row.empty else row.iloc[0].to_dict()
-    )
-
-# H5: EUR vs Sinclair
-for y in ["Sinclair", "Total Sinclair calculated"]:
-    plot_scatter(
-        df, "EUR", y,
-        f"H5: {label('EUR')} and {label(y)}",
-        FIGURE_DIR / "H5" / f"H5_EUR_vs_{safe_name(y)}.png",
-        get_stat("H5", "EUR", y)
-    )
+    # H5: EUR vs Sinclair
+    for y in ["Sinclair", "Total Sinclair calculated"]:
+        plot_scatter(
+            group_df, "EUR", y,
+            f"H5 ({group_name}): {label('EUR')} and {label(y)}",
+            FIGURE_DIR / "H5" / f"H5_EUR_vs_{safe_name(y)}_{safe_group}.png",
+            get_stat(group_name, "H5", "EUR", y)
+        )
 
 # =========================
 # 8) Thesis interpretation text
